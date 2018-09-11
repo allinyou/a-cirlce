@@ -10,6 +10,7 @@
 // @ is an alias to /src
 
 import HelloWorld from '@/components/HelloWorld.vue';
+import LoginAPI from '@/api/index';
 
 export default {
   name: 'home',
@@ -22,19 +23,10 @@ export default {
     HelloWorld,
   },
   methods: {
-    change() {
-      const that = this;
-      return new Promise((resove) => {
-        setTimeout(() => {
-          that.time += 1;
-          resove(that.time);
-        }, 1000);
-      });
-    },
     async setTime() {
       try {
-        const time = await this.change();
-        console.log(time);
+        const data = await LoginAPI.login({ name: 'zhangsan', pwd: '123456' });
+        console.log(data.data);
       } catch (err) {
         console.log(err);
       }
