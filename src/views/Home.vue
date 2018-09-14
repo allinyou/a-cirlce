@@ -39,7 +39,7 @@ export default {
   .home{
     width: 80%;
     margin: 0 auto;
-    @extend .all-border;
+    @extend .t-border;
   }
 </style>
 
