@@ -23,7 +23,7 @@ a {
 body{
   font-size:0.28rem;
 }
-@import '@/style/index.scss';
+@import './style/index.scss';
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
