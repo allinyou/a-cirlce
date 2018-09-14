@@ -6,6 +6,13 @@ import './registerServiceWorker';
 
 Vue.config.productionTip = false;
 
+const remResize = () => {
+  const width = document.documentElement.clientWidth;
+  document.documentElement.style.fontSize = `${(width / 750) * 100}px`;
+};
+remResize();
+window.addEventListener('resize', remResize);
+
 new Vue({
   router,
   store,
