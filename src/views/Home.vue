@@ -35,11 +35,11 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import '@/style/index.scss';
+  @import '../style/index.scss';
   .home{
     width: 80%;
     margin: 0 auto;
-    @extend .all-border;
+    @extend .t-border;
   }
 </style>
 
