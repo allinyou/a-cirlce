@@ -1,19 +1,17 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <p>{{time}}</p>
-    <button @click="setTime">change</button>
+      <div class="avatar"></div>
   </div>
 </template>
 <script>
 // @ is an alias to /src
 
 import HelloWorld from '@/components/HelloWorld';
-import LoginAPI from '@/api/index';
+import mixin from '@/mixins/index';
 
 export default {
   name: 'home',
+  mixins: [mixin],
   data() {
     return {
       time: 0,
@@ -23,23 +21,21 @@ export default {
     HelloWorld,
   },
   methods: {
-    async setTime() {
-      try {
-        const data = await LoginAPI.login({ name: 'zhangsan', pwd: '123456' });
-        console.log(data.data);
-      } catch (err) {
-        console.log(err);
-      }
-    },
+
   },
 };
 </script>
 <style lang="scss">
   @import '../style/index.scss';
   .home{
-    width: 80%;
-    margin: 0 auto;
-    @extend .t-border;
+    padding:0 0.3rem;
+    .avatar{
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius:50%;
+      overflow: hidden;
+      background: url(../assets/avatar.jpg) no-repeat center/contain;
+    }
   }
 </style>
 

@@ -1,3 +1,4 @@
+// @import 'vars.scss';
 .h-center {
     display: flex;
     align-items: center;
@@ -45,7 +46,7 @@
         left:0;
         width: 200%;
         height: 1px;
-        background-color: red;
+        background-color: $border-color;
         transform-origin: left top;
         transform: scale(0.5);
     }
@@ -61,7 +62,7 @@
         left:0;
         width: 200%;
         height: 1px;
-        background-color: red;
+        background-color: $border-color;
         transform-origin: left bottom;
         transform: scale(0.5);
     }
@@ -77,7 +78,7 @@
         left:0;
         width: 1px;
         height: 200%;
-        background-color: red;
+        background-color: $border-color;
         transform-origin: left top;
         transform: scale(0.5);
     }
@@ -93,7 +94,7 @@
         right:0;
         width: 1px;
         height: 200%;
-        background-color: red;
+        background-color: $border-color;
         transform-origin: right top;
         transform: scale(0.5);
     }
@@ -112,6 +113,6 @@
         box-sizing: border-box;
         transform-origin: left top;
         transform: scale(0.5);
-        border:1px solid red;
+        border:1px solid $border-color;
     }
 }
