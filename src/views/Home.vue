@@ -1,10 +1,11 @@
 <template>
   <div class="home">
-    <div class="avatar-info">
+    <div class="avatar-info" @click="goAbout">
       <div class="avatar"></div>
       <div class="info">
         <span>高荣珍</span>
-        <span>1992年06月17日</span>
+        <span>1992年 06月 17日</span>
+        <span>北京 | 高级前端开发工程师</span>
       </div>
       <img src="@/assets/next.png" alt="" class="next">
     </div>
@@ -44,6 +45,12 @@ export default {
         {
           name: '5',
         },
+        {
+          name: '6',
+        },
+        {
+          name: '7',
+        },
       ],
     };
   },
@@ -51,12 +58,14 @@ export default {
     HelloWorld,
   },
   methods: {
-
+    goAbout() {
+      this.$router.push({ name: 'about' });
+    },
   },
   mounted() {
-    let index = 0
+    let index = 0;
     const t = setInterval(() => {
-      if (index >= 5) {
+      if (index >= 7) {
         clearInterval(t);
         return;
       }
@@ -77,14 +86,19 @@ export default {
   transition-duration: 0.3s;
 }
 .home{
-  padding:0 0.3rem;
   .avatar-info{
-    height: 1.8rem;
+    position: fixed;
+    top:0;
+    left:0.3rem;
+    right:0.3rem;
+    height: 2.2rem;
+    background-color: #fff;
+    z-index: 1000;
     @extend .h-center;
     @extend .b-border;
     .avatar{
-      width: 1.2rem;
-      height: 1.2rem;
+      width: 1.6rem;
+      height: 1.6rem;
       border-radius:50%;
       overflow: hidden;
       background: url(../assets/avatar.jpg) no-repeat center/cover;
@@ -96,9 +110,12 @@ export default {
       @extend .column-center;
       align-items: flex-start;
       span:first-child{
-        font-size:0.32rem;
+        font-size:0.34rem;
         font-weight: bold;
-        margin-bottom:0.1rem;
+        margin-bottom:0.06rem;
+      }
+      span:last-child{
+        margin-top:0.06rem;
       }
     }
     .next{
@@ -106,6 +123,7 @@ export default {
     }
   } 
   .item-list{
+    padding:2.2rem 0.3rem 0;
     .item{
       @extend .b-border;
       height: 2rem;       
