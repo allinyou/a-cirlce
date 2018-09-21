@@ -5,7 +5,7 @@
       <div class="info">
         <span>高荣珍</span>
         <span>1992年 06月 17日</span>
-        <span>北京 | 高级前端开发工程师</span>
+        <span>北京 | web前端</span>
       </div>
       <img src="@/assets/next.png" alt="" class="next">
     </div>
@@ -18,6 +18,7 @@
 </template>
 <script>
 // @ is an alias to /src
+import LoginAPI from '@/api/index';
 
 import HelloWorld from '@/components/HelloWorld';
 import mixin from '@/mixins/index';
@@ -58,8 +59,14 @@ export default {
     HelloWorld,
   },
   methods: {
-    goAbout() {
-      this.$router.push({ name: 'about' });
+    async goAbout() {
+      try {
+        const data = await LoginAPI.login({ name: 'zhangsan', age: 200 });
+        console.log(data.data); 
+        this.$router.push({ name: 'about' });
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
   mounted() {

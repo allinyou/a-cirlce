@@ -45,7 +45,15 @@ module.exports = {
      port: 8090,
      https: false,
      hotOnly: false,
-     proxy: null, // 设置代理
+     proxy: {
+        '/api': {
+            target: 'http://127.0.0.1',
+            changeOrigin: true,
+            pathRewrite: {
+              '^/api': '/'
+            }
+          }
+     }, // 设置代理
      before: app => {}
     },
     // 第三方插件配置

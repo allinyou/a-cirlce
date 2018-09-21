@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://127.0.0.1',
+    baseURL: '/api',
     transformRequest: [data => JSON.stringify(data)],
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded', // application/x-www-form-urlencoded
