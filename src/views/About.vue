@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div class="about-title">专业技能</div>
+    <div class="about-title" @click="reload">专业技能</div>
     <div class="skills">
       <div :class="'skill-item bg-color'+index%8" v-for="(item,index) in skills" :key="index">{{item}}</div>
     </div>
@@ -66,6 +66,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    reload() {
+      window.location.reload(true);
+    },
   },
 };
 </script>
@@ -165,4 +170,3 @@ export default {
 }
 
 </style>
-
