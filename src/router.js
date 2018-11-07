@@ -18,7 +18,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        title: '个人中心',
+        title: '高荣珍个人简历',
         auth: false,
       },
     },
@@ -27,7 +27,7 @@ const router = new Router({
       name: 'about',
       component: About,
       meta: {
-        title: '关于我们',
+        title: '关于我',
         auth: false,
       },
     },

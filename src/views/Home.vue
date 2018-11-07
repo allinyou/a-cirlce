@@ -1,6 +1,22 @@
 <template>
   <div class="home">
-    <div class="avatar-info" @click="goAbout">
+    <div class="fullpage-container">
+      <div class="fullpage-wp" v-fullpage="opts">
+        <div class="page-1 page">
+          <p class="part-1" v-animate="{value: 'bounceInLeft'}">vue-fullpage</p>
+        </div>
+        <div class="page-2 page">
+          <p class="part-2" v-animate="{value: 'bounceInRight'}">vue-fullpage</p>
+        </div>
+        <div class="page-3 page">
+          <p class="part-3" v-animate="{value: 'bounceInLeft', delay: 0}">vue-fullpage</p>
+          <p class="part-3" v-animate="{value: 'bounceInRight', delay: 600}">vue-fullpage</p>
+          <p class="part-3" v-animate="{value: 'zoomInDown', delay: 1200}">vue-fullpage</p>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- <div class="avatar-info" @click="goAbout">
       <div class="avatar"></div>
       <div class="info">
         <span>高荣珍</span>
@@ -13,8 +29,7 @@
       <div class="item" v-for="(item,index) in list1" :key="index">
         <span>{{item.name}}</span>
       </div>
-    </transition-group>
-  </div>
+    </transition-group> -->
 </template>
 <script>
 // @ is an alias to /src
@@ -53,20 +68,23 @@ export default {
           name: '7',
         },
       ],
+      opts: {
+        start: 0,
+        dir: 'v',
+        duration: 500,
+        beforeChange: function (prev, next) {
+        },
+        afterChange: function (prev, next) {
+        },
+      },
     };
   },
   components: {
     HelloWorld,
   },
   methods: {
-    async goAbout() {
-      try {
-        const data = await LoginAPI.login({ name: 'zhangsan', age: 200 });
-        console.log(data.data); 
-        this.$router.push({ name: 'about' });
-      } catch (err) {
-        console.log(err);
-      }
+    goAbout() {
+      this.$router.push({ name: 'about' });
     },
   },
   mounted() {
@@ -93,6 +111,11 @@ export default {
   transition-duration: 0.3s;
 }
 .home{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
   .avatar-info{
     position: fixed;
     top:0;
@@ -135,6 +158,15 @@ export default {
       @extend .b-border;
       height: 2rem;       
     }
+  }
+  .page-1{
+    background-color: green;
+  }
+  .page-2{
+    background-color: red;
+  }
+  .page-3{
+    background-color: yellow;
   }
 }
 </style>
