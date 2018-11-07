@@ -9,8 +9,8 @@ import './registerServiceWorker';
 
 Vue.use(VueFullpage);
 
-var audio = new Audio('./assets/audio/1111.mp3');
-audio.loop="loop";
+const audio = new Audio('./assets/audio/1111.mp3');
+audio.loop = 'loop';
 audio.play();
 
 Vue.config.productionTip = false;

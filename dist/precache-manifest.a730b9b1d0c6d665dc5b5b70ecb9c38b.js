@@ -12,11 +12,11 @@ self.__precacheManifest = [
     "url": "/newcli/dist/js/chunk-4425.38a0a9dd.js"
   },
   {
-    "revision": "fcf9c2afd29736787006",
-    "url": "/newcli/dist/js/app.00ac1aee.js"
+    "revision": "0faf81f7b265b3bbeedb",
+    "url": "/newcli/dist/js/app.0d972f2c.js"
   },
   {
-    "revision": "2c0c4d399b2b2971af8ed829b507308e",
+    "revision": "614352ecc98ad12c9d0f50053d1d79a4",
     "url": "/newcli/dist/index.html"
   },
   {
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/newcli/dist/css/chunk-4425.c6906637.css"
   },
   {
-    "revision": "fcf9c2afd29736787006",
+    "revision": "0faf81f7b265b3bbeedb",
     "url": "/newcli/dist/css/app.07deed45.css"
   }
 ];
