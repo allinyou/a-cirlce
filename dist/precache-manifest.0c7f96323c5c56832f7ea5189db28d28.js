@@ -1,22 +1,26 @@
 self.__precacheManifest = [
   {
+    "revision": "6f9095997da2e8e67bde",
+    "url": "/newcli/dist/js/chunk-vendors.7e213289.js"
+  },
+  {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/newcli/dist/robots.txt"
   },
   {
-    "revision": "6f9095997da2e8e67bde",
-    "url": "/newcli/dist/js/chunk-vendors.7e213289.js"
+    "revision": "fcd5ea14588946f7a43598b28e38936b",
+    "url": "/newcli/dist/media/1111.fcd5ea14.mp3"
   },
   {
     "revision": "1bfcdc2f25b0f03fbc28",
     "url": "/newcli/dist/js/chunk-4425.38a0a9dd.js"
   },
   {
-    "revision": "0faf81f7b265b3bbeedb",
-    "url": "/newcli/dist/js/app.0d972f2c.js"
+    "revision": "e08e1845b93d3224e82c",
+    "url": "/newcli/dist/js/app.a0c13f7f.js"
   },
   {
-    "revision": "614352ecc98ad12c9d0f50053d1d79a4",
+    "revision": "6b9d4a736d6b64e05e342a50a999c173",
     "url": "/newcli/dist/index.html"
   },
   {
@@ -36,7 +40,7 @@ self.__precacheManifest = [
     "url": "/newcli/dist/css/chunk-4425.c6906637.css"
   },
   {
-    "revision": "0faf81f7b265b3bbeedb",
+    "revision": "e08e1845b93d3224e82c",
     "url": "/newcli/dist/css/app.07deed45.css"
   }
 ];
