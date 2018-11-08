@@ -1,10 +1,10 @@
 <template>
-  <div class="home">
+  <div class="home" @touchmove="touchmove">
     <div class="fullpage-container">
       <div class="fullpage-wp" v-fullpage="opts">
         <div class="page-1 page">
           <p class="part-1" v-animate="{value: 'bounceInLeft'}">vue-fullpage</p>
-           <!-- <audio :src="mp3" controls="controls" autoplay="autoplay"></audio> -->
+          <p @click="goAbout">个人中心</p>
         </div>
         <div class="page-2 page">
           <p class="part-2" v-animate="{value: 'bounceInRight'}">vue-fullpage</p>
@@ -35,7 +35,6 @@
 <script>
 // @ is an alias to /src
 import LoginAPI from '@/api/index';
-import mp3 from '@/assets/audio/1111.mp3';
 import HelloWorld from '@/components/HelloWorld';
 import mixin from '@/mixins/index';
 
@@ -69,7 +68,6 @@ export default {
           name: '7',
         },
       ],
-      mp3,
       opts: {
         start: 0,
         dir: 'v',
@@ -87,6 +85,9 @@ export default {
   methods: {
     goAbout() {
       this.$router.push({ name: 'about' });
+    },
+    touchmove(e) {
+      e.preventDefault();
     },
   },
   mounted() {

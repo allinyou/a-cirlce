@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import App from '@/App';
 import VueFullpage from 'vue-fullpage';
-import mp3 from './assets/audio/1111.mp3';
 import 'animate.css';
 import 'vue-fullpage/vue-fullpage.css';
 import router from './router';
@@ -19,8 +18,9 @@ const Rem = () => {
 Rem();
 window.addEventListener('resize', Rem);
 
-const audio = new Audio(mp3);
+const audio = new Audio('https://6d61-magic-d13079-1255581239.tcb.qcloud.la/faded.mp3?sign=ec825987d5450bafcbbbc5527e670d6a&t=1541584769');
 audio.autoplay = true;
+audio.loop = 'loop';
 
 new Vue({
   router,
