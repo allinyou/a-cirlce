@@ -16,7 +16,8 @@
         </div>
       </div>
     </div>
-    <canvas id="canvas1" height="1000" width="30"></canvas> 
+    <canvas id="canvas1" height="1000" width="20"></canvas>
+    <canvas id="canvas2" height="1000" width="20"></canvas>  
   </div>
 </template>
 <script>
@@ -76,35 +77,59 @@ export default {
     touchmove(e) {
       e.preventDefault();
     },
+    drawFreq() {
+      const canvas1 = document.getElementById("canvas1");
+      const cxt = canvas1.getContext("2d");
+      const canvas2 = document.getElementById("canvas2");
+      const cxt2 = canvas2.getContext("2d");
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const context = new AudioContext();
+      // 创建节点
+      const source = context.createMediaElementSource(this.audio);
+      const analyser = context.createAnalyser();
+      // 连接：source → analyser → destination
+      source.connect(analyser);
+      analyser.connect(context.destination);
+      const output = new Uint8Array(32); 
+      (function drawFreqs(){
+        analyser.getByteFrequencyData(output);
+        cxt.clearRect(0, 0, canvas1.width, canvas1.height);
+        cxt2.clearRect(0, 0, canvas2.width, canvas2.height);
+        const distance = 20;
+        for (let i = 2; i < 50; i++) {
+          const value = output[i] / 25; // <===获取数据 
+
+          // 左边频谱
+          cxt.beginPath();
+          cxt.lineWidth = 1; 
+          cxt.moveTo(0,i * distance);
+          cxt.lineCap = 'round';
+          cxt.lineTo(value, i * distance);
+          cxt.closePath();
+          // const R = Math.floor(Math.random() * 256);
+          // const G = Math.floor(Math.random() * 256);
+          // const B = Math.floor(Math.random() * 256);
+          const colors = [ 'red', 'orange', 'yellow', 'green', 'blue', 'cyan', 'purple' ];
+          const random = Math.floor(Math.random() * 7);
+          cxt.strokeStyle = colors[random];
+          cxt.stroke();
+          // 右边频谱
+          cxt2.beginPath();
+          cxt2.lineWidth = 1; 
+          cxt2.moveTo(canvas2.width,i * distance);
+          cxt2.lineCap = 'round';
+          cxt2.lineTo(canvas2.width - value, i * distance);
+          cxt2.closePath();
+          cxt2.strokeStyle = colors[random];
+          cxt2.stroke();
+        } 
+        requestAnimationFrame(drawFreqs);
+      })()
+    },
   },
   mounted() {
-    const canvas1 = document.getElementById("canvas1");
-    const cxt = canvas1.getContext("2d");
-    const AudioContext = AudioContext || webkitAudioContext;
-    const context = new AudioContext;
-    //创建节点
-    const source = context.createMediaElementSource(this.audio);
-    const analyser = context.createAnalyser();
-    //连接：source → analyser → destination
-    source.connect(analyser);
-    analyser.connect(context.destination);
-    const output = new Uint8Array(180); 
-    (function drawFreq(){
-      analyser.getByteFrequencyData(output);
-      cxt.clearRect(0, 0, canvas1.width, canvas1.height);
-      for (let i = 0; i < 180; i++) {
-        const value = output[i] / 15;//<===获取数据 
-        cxt.beginPath();
-        cxt.lineWidth = 2; 
-        cxt.moveTo(0,i * 5);
-        cxt.lineCap="round";
-        cxt.lineTo(value, i * 5);
-        cxt.closePath();
-        cxt.strokeStyle = 'red';
-        cxt.stroke();
-      } 
-      requestAnimationFrame(drawFreq);
-    })()
+    console.log(2);
+    this.drawFreq();
     let index = 0;
     const t = setInterval(() => {
       if (index >= 7) {
@@ -177,17 +202,23 @@ export default {
     }
   }
   .page-1{
-    background-color: green;
+   // background-color: green;
   }
   .page-2{
-    background-color: red;
+    //background-color: red;
   }
   .page-3{
-    background-color: yellow;
+   // background-color: yellow;
   }
   #canvas1{
     position: fixed;
     left:0;
+    top:0;
+    z-index: 999;
+  }
+  #canvas2{
+    position: fixed;
+    right:0;
     top:0;
     z-index: 999;
   }
