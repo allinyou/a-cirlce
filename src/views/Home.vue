@@ -16,21 +16,8 @@
         </div>
       </div>
     </div>
-    </div>
-    <!-- <div class="avatar-info" @click="goAbout">
-      <div class="avatar"></div>
-      <div class="info">
-        <span>高荣珍</span>
-        <span>1992年 06月 17日</span>
-        <span>北京 | web前端</span>
-      </div>
-      <img src="@/assets/next.png" alt="" class="next">
-    </div>
-    <transition-group name="fade" tag="div" class="item-list" :appear="true">
-      <div class="item" v-for="(item,index) in list1" :key="index">
-        <span>{{item.name}}</span>
-      </div>
-    </transition-group> -->
+    <canvas id="canvas1" height="1000" width="30"></canvas> 
+  </div>
 </template>
 <script>
 // @ is an alias to /src
@@ -91,6 +78,33 @@ export default {
     },
   },
   mounted() {
+    const canvas1 = document.getElementById("canvas1");
+    const cxt = canvas1.getContext("2d");
+    const AudioContext = AudioContext || webkitAudioContext;
+    const context = new AudioContext;
+    //创建节点
+    const source = context.createMediaElementSource(this.audio);
+    const analyser = context.createAnalyser();
+    //连接：source → analyser → destination
+    source.connect(analyser);
+    analyser.connect(context.destination);
+    const output = new Uint8Array(180); 
+    (function drawFreq(){
+      analyser.getByteFrequencyData(output);
+      cxt.clearRect(0, 0, canvas1.width, canvas1.height);
+      for (let i = 0; i < 180; i++) {
+        const value = output[i] / 15;//<===获取数据 
+        cxt.beginPath();
+        cxt.lineWidth = 2; 
+        cxt.moveTo(0,i * 5);
+        cxt.lineCap="round";
+        cxt.lineTo(value, i * 5);
+        cxt.closePath();
+        cxt.strokeStyle = 'red';
+        cxt.stroke();
+      } 
+      requestAnimationFrame(drawFreq);
+    })()
     let index = 0;
     const t = setInterval(() => {
       if (index >= 7) {
@@ -170,6 +184,12 @@ export default {
   }
   .page-3{
     background-color: yellow;
+  }
+  #canvas1{
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 999;
   }
 }
 </style>

@@ -21,6 +21,7 @@ window.addEventListener('resize', Rem);
 const audio = new Audio('https://6d61-magic-d13079-1255581239.tcb.qcloud.la/faded.mp3?sign=ec825987d5450bafcbbbc5527e670d6a&t=1541584769');
 audio.autoplay = true;
 audio.loop = 'loop';
+Vue.prototype.audio = audio;
 
 new Vue({
   router,
