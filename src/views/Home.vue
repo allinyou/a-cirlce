@@ -98,7 +98,7 @@ export default {
         const distance = 20;
         const colors = [ 'red', 'orange', 'yellow', 'green', 'blue', 'cyan', 'purple' ];
         const random = Math.floor(Math.random() * 7);
-        for (let i = 1; i < 50; i++) {
+        for (let i = 0; i < 40; i++) {
           const value = output[i] / 15; // <===获取数据 
 
           // 左边频谱
