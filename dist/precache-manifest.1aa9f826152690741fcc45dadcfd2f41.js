@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "34d7f3b0152f1046a9c3034fc5a6b26b",
-    "url": "/newcli/dist/img/avatar.34d7f3b0.jpg"
+    "revision": "8c7f8006c240b4e8a716718dbdca79fb",
+    "url": "/newcli/dist/media/勇敢爱.8c7f8006.mp3"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
@@ -24,8 +24,12 @@ self.__precacheManifest = [
     "url": "/newcli/dist/js/chunk-vendors.ed7b77c0.js"
   },
   {
-    "revision": "825948404e7fa77218c7",
-    "url": "/newcli/dist/js/app.fcf50413.js"
+    "revision": "34d7f3b0152f1046a9c3034fc5a6b26b",
+    "url": "/newcli/dist/img/avatar.34d7f3b0.jpg"
+  },
+  {
+    "revision": "667d9f2e2b352c4e6f14",
+    "url": "/newcli/dist/js/app.ba366ad9.js"
   },
   {
     "revision": "eb1901c2e7ce8791cbf6",
@@ -44,11 +48,11 @@ self.__precacheManifest = [
     "url": "/newcli/dist/media/faded.7cf4477c.mp3"
   },
   {
-    "revision": "cc48815febf1d789477890ff228519cf",
+    "revision": "504b4ee2a9f40afd50405840d1cb28f7",
     "url": "/newcli/dist/index.html"
   },
   {
-    "revision": "825948404e7fa77218c7",
+    "revision": "667d9f2e2b352c4e6f14",
     "url": "/newcli/dist/css/app.da13047f.css"
   }
 ];

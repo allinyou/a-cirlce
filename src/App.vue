@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
     <canvas id="canvas1" height="52" width="30"></canvas>
     <canvas id="canvas2" height="52" width="30"></canvas>
   </div>
@@ -15,10 +17,10 @@ export default {
   },
   methods: {
     drawFreq() {
-      const canvas1 = document.getElementById("canvas1");
-      const cxt1 = canvas1.getContext("2d");
-      const canvas2 = document.getElementById("canvas2");
-      const cxt2 = canvas2.getContext("2d");
+      const canvas1 = document.getElementById('canvas1');
+      const cxt1 = canvas1.getContext('2d');
+      const canvas2 = document.getElementById('canvas2');
+      const cxt2 = canvas2.getContext('2d');
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       const context = new AudioContext();
       // 创建节点
@@ -50,7 +52,7 @@ export default {
           // 右边频谱
           cxt2.beginPath();
           cxt2.lineWidth = 5; 
-          cxt2.moveTo(canvas2.width,y);
+          cxt2.moveTo(canvas2.width, y);
           cxt2.lineTo(canvas2.width - value2, y);
           cxt2.closePath();
           cxt2.strokeStyle = that.color2;

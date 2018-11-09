@@ -3,7 +3,8 @@ import App from '@/App';
 import VueFullpage from 'vue-fullpage';
 import faded from './assets/audio/faded.mp3';
 import Friendships from './assets/audio/Friendships.mp3';
-import mp3 from './assets/audio/你根本不懂.mp3';
+import mp31 from './assets/audio/你根本不懂.mp3';
+import mp32 from './assets/audio/勇敢爱.mp3';
 import 'animate.css';
 import 'vue-fullpage/vue-fullpage.css';
 import router from './router';
@@ -21,7 +22,7 @@ const Rem = () => {
 Rem();
 window.addEventListener('resize', Rem);
 
-const songs = [ faded, Friendships, mp3 ];
+const songs = [ faded, Friendships, mp31, mp32 ];
 const index = Math.floor(songs.length * Math.random());
 const audio = new Audio();
 audio.src = songs[index];   //songs[index]
