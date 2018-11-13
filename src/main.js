@@ -1,17 +1,10 @@
 import Vue from 'vue';
 import App from '@/App';
-import VueFullpage from 'vue-fullpage';
-import faded from './assets/audio/faded.mp3';
+import C400000KSVf32VXoTE from './assets/audio/C400000KSVf32VXoTE.mp3';
 import Friendships from './assets/audio/Friendships.mp3';
-import mp31 from './assets/audio/你根本不懂.mp3';
-import mp32 from './assets/audio/勇敢爱.mp3';
-import 'animate.css';
-import 'vue-fullpage/vue-fullpage.css';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
-
-Vue.use(VueFullpage);
 
 Vue.config.productionTip = false;
 
@@ -22,12 +15,20 @@ const Rem = () => {
 Rem();
 window.addEventListener('resize', Rem);
 
-const songs = [ faded, Friendships, mp31, mp32 ];
-const index = Math.floor(songs.length * Math.random());
+let index = 1;
 const audio = new Audio();
-audio.src = songs[index];   //songs[index]
+audio.src = C400000KSVf32VXoTE;   // songs[index]
 audio.autoplay = true;
-audio.loop = 'loop';
+// audio.loop = 'loop';
+audio.addEventListener('ended', () => {
+  if (index == 1) {
+    audio.src = Friendships;
+    index = 2;
+  } else {
+    audio.src = C400000KSVf32VXoTE;
+    index = 1;
+  } 
+})
 Vue.prototype.audio = audio;
 
 new Vue({
@@ -35,3 +36,4 @@ new Vue({
   store,
   render: h => h(App),
 }).$mount('#app');
+

@@ -1,21 +1,6 @@
 <template>
-  <div class="home" @touchmove="touchmove">
-    <div class="fullpage-container">
-      <div class="fullpage-wp" v-fullpage="opts">
-        <div class="page-1 page">
-          <p class="part-1" v-animate="{value: 'bounceInLeft'}">1</p> 
-        </div>
-        <div class="page-2 page">
-          <p class="part-2" v-animate="{value: 'bounceInRight'}">2</p>
-          <p @click="goAbout">个人中心</p>
-        </div>
-        <div class="page-3 page">
-          <p class="part-3" v-animate="{value: 'bounceInLeft', delay: 0}">3</p>
-          <p class="part-3" v-animate="{value: 'bounceInRight', delay: 600}">33</p>
-          <p class="part-3" v-animate="{value: 'zoomInDown', delay: 1200}">333</p>  
-        </div>
-      </div>
-    </div>
+  <div class="home" @click="goAbout">
+    个人中心
   </div>
 </template>
 <script>
@@ -29,60 +14,17 @@ export default {
   mixins: [mixin],
   data() {
     return {
-      time: 0,
-      list1: [],
-      list: [
-        {
-          name: '1',
-        },
-        {
-          name: '2',
-        },
-        {
-          name: '3',
-        },
-        {
-          name: '4',
-        },
-        {
-          name: '5',
-        },
-        {
-          name: '6',
-        },
-        {
-          name: '7',
-        },
-      ],
-      opts: {
-        start: 0,
-        dir: 'v',
-        duration: 500,
-        beforeChange: (prev, next) => {
-        },
-        afterChange: (prev, next) => {
-        },
-      },
+    
     };
   },
   components: {
     HelloWorld,
   },
   methods: {
-    touchmove(e) {
-      e.preventDefault();
-    },
+    
   },
   mounted() {
-    let index = 0;
-    const t = setInterval(() => {
-      if (index >= 7) {
-        clearInterval(t);
-        return;
-      }
-      this.list1.push(this.list[index]);
-      index += 1;
-    }, 200);
+    
   },
 };
 </script>

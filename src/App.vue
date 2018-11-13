@@ -3,8 +3,8 @@
     <keep-alive>
       <router-view/>
     </keep-alive>
-    <canvas id="canvas1" height="52" width="30"></canvas>
-    <canvas id="canvas2" height="52" width="30"></canvas>
+    <canvas id="canvas1" height="520" width="300"></canvas>
+    <canvas id="canvas2" height="520" width="300"></canvas>
   </div>
 </template>
 <script>
@@ -35,14 +35,14 @@ export default {
         analyser.getByteFrequencyData(output);
         cxt1.clearRect(0, 0, canvas1.width, canvas1.height);
         cxt2.clearRect(0, 0, canvas2.width, canvas2.height);
-        const distance = 15;
+        const distance = 150;
         for (let i = 0; i < 4; i++) {
-          const value1 = output[i] / 15; // <===获取数据 
-          const value2 = output[3 - i] / 15;
+          const value1 = output[i]; // <===获取数据 
+          const value2 = output[3 - i];
           // 左边频谱
           cxt1.beginPath();
-          cxt1.lineWidth = 5; 
-          const y = i * distance + 3;
+          cxt1.lineWidth = 50; 
+          const y = i * distance + 30;
           cxt1.moveTo(0,y);
           cxt1.lineTo(value1, y);
           cxt1.closePath();
@@ -51,7 +51,7 @@ export default {
 
           // 右边频谱
           cxt2.beginPath();
-          cxt2.lineWidth = 5; 
+          cxt2.lineWidth = 50; 
           cxt2.moveTo(canvas2.width, y);
           cxt2.lineTo(canvas2.width - value2, y);
           cxt2.closePath();
@@ -98,12 +98,16 @@ body{
 } 
 #canvas1{
   position: fixed;
+  width: 30px;
+  height: 52px;
   left:0;
   bottom:50px;
   z-index: 999;
 }
 #canvas2{
   position: fixed;
+  width: 30px;
+  height: 52px;
   right:0;
   top:50px;
   z-index: 999;

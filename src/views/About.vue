@@ -21,9 +21,16 @@
     <div class="about-title">联系方式</div>
     <div class="connact">
       <div class="connact-item">Tel：<a href="tel:13641150363">13641150363</a></div>
-      <div class="connact-item">Emall：<span>469420741@qq.com</span></div>
+      <div class="connact-item">Emall：<a href="mailto:469420741@qq.com">469420741@qq.com</a></div>
       <div class="we-chat">
-        <img src="../assets/wechat.jpg" alt="">
+        <div>
+          <img src="../assets/wechat_public.jpg" alt="">
+          <span>微信公众号</span>
+        </div>
+        <div>
+          <img src="../assets/wechat.jpg" alt="">
+          <span>我的微信</span>
+        </div>
       </div>
     </div> 
   </div>
@@ -153,18 +160,23 @@ export default {
     padding:0.1rem 0.3rem 0.2rem;
     .connact-item{
       margin-top:0.1rem;
-      a,span {
+      a {
         color:$main-color;
         text-decoration: underline;
       }
     }
     .we-chat{
       margin-top:0.2rem;
-      img{
-        display: block;
-        margin:0 auto;
-        width:60%;
+      @extend .v-center;
+      div{
+        width:40%;
+        @extend .column-center; 
+        img{
+          display: block;
+          width:80%;
+        }
       }
+      
     }
   }
 }
