@@ -1,6 +1,15 @@
 <template>
   <div class="about">
-    <div class="about-title" @click="reload">专业技能</div>
+    <div class="about-title">个人资料</div>
+    <div class="avatar-info">
+      <div class="avatar" @click="showPre"></div>
+      <div class="info">
+        <span>高荣珍</span>
+        <span>1992-06-17</span>
+        <span>高级前端工程师</span>
+      </div>
+    </div>
+    <div class="about-title">专业技能</div>
     <div class="skills">
       <div :class="'skill-item bg-color'+index%8" v-for="(item,index) in skills" :key="index">{{item}}</div>
     </div>
@@ -32,6 +41,10 @@
           <span>我的微信</span>
         </div>
       </div>
+    </div>
+    <div class="pre-image" v-show="preShow" @click="hidePre">
+        <div class="blur-box"></div>
+        <img src="../assets/avatar.jpg" alt="">
     </div> 
   </div>
 </template>
@@ -46,19 +59,18 @@ export default {
         'CSS',
         'ES6',
         'Vue',
-        'Anglar',
+        'MINA(微信小程序)',
+        'Angular',
         'HTML5',
         'CSS3',
         'Sass',
         'Less',
         'Swiper',
-        'Jquery',
+        'JQuery',
         'git',
         'svn',
         'php',
         'mysql',
-        'MINA(微信小程序)',
-        'SWAN(百度小程序)',
       ],
       workHistory: [
         {
@@ -72,11 +84,18 @@ export default {
           job: '前端工程师',
         },
       ],
+      preShow: false,
     };
   },
   methods: {
     reload() {
       window.location.reload(true);
+    },
+    showPre() {
+      this.preShow = true;
+    },
+    hidePre() {
+      this.preShow = false;
     },
   },
 };
@@ -85,6 +104,37 @@ export default {
 <style lang="scss">
 @import '../style/index.scss';
 .about{
+  .avatar-info{
+    padding:0.2rem 0.3rem;
+    background-color: #fff;
+    @extend .h-center;
+    @extend .b-border;
+    .avatar{
+      padding:3px;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius:50%;
+      box-sizing: border-box;
+      overflow: hidden;
+      background: url(../assets/avatar.jpg) no-repeat 55% 20%/160%;
+      box-shadow: 0 0 8px rgba(0,0,0,0.5);
+      background-clip: content-box;
+    }
+    .info{
+      flex-grow:1;
+      margin-left:0.2rem;
+      @extend .column-center;
+      align-items: flex-start;
+      span:first-child{
+        font-size:0.34rem;
+        font-weight: bold;
+        margin-bottom:0.06rem;
+      }
+      span:last-child{
+        margin-top:0.06rem;
+      }
+    }
+  } 
   .about-title{
     padding:0 0.3rem;
     height: 0.8rem;
@@ -111,8 +161,7 @@ export default {
     .skill-item.bg-color1{
         background-color: #beafce;
     }
-    .skill-item.bg-color2{
-        
+    .skill-item.bg-color2{      
         background-color: #f6bc7d;
     }
     .skill-item.bg-color3{
@@ -177,6 +226,31 @@ export default {
         }
       }
       
+    }
+  }
+  .pre-image{
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: #222;
+    .blur-box{
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+      filter: blur(20px);
+      background:url(https://6d61-magic-d13079-1255581239.tcb.qcloud.la/330.jpg?sign=dfb82f59add7d363ffd74e754fe47a5a&t=1542179050) no-repeat center top/100%;
+    }
+    img{
+      width: 80%;
+      position: fixed;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
     }
   }
 }

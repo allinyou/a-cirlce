@@ -29,21 +29,21 @@ export default {
       // 连接：source → analyser → destination
       source.connect(analyser);
       analyser.connect(context.destination);
-      const output = new Uint8Array(4); 
+      const output = new Uint8Array(4);
       const that = this;
-      (function drawFreqs(){
+      (function drawFreqs() {
         analyser.getByteFrequencyData(output);
         cxt1.clearRect(0, 0, canvas1.width, canvas1.height);
         cxt2.clearRect(0, 0, canvas2.width, canvas2.height);
         const distance = 150;
         for (let i = 0; i < 4; i++) {
-          const value1 = output[i]; // <===获取数据 
-          const value2 = output[3 - i];
+          const value1 = output[i] / 1.5; // <===获取数据 
+          const value2 = output[3 - i] / 1.5;
           // 左边频谱
           cxt1.beginPath();
           cxt1.lineWidth = 50; 
           const y = i * distance + 30;
-          cxt1.moveTo(0,y);
+          cxt1.moveTo(0, y);
           cxt1.lineTo(value1, y);
           cxt1.closePath();
           cxt1.strokeStyle = that.color1;
@@ -57,15 +57,15 @@ export default {
           cxt2.closePath();
           cxt2.strokeStyle = that.color2;
           cxt2.stroke();
-        } 
+        }; 
         requestAnimationFrame(drawFreqs);
-      })()
+      })();
     },
   },
   mounted() {
-    const colors = [ 'red', 'orange', 'yellow', 'green', 'blue', 'cyan', 'purple' ];
-    const randomIndex1 = Math.floor(Math.random() * 7);
-    const randomIndex2 = Math.floor(Math.random() * 7);
+    const colors = ['red', 'orange', 'green', 'blue', 'cyan', 'purple'];
+    const randomIndex1 = Math.floor(Math.random() * 6);
+    const randomIndex2 = Math.floor(Math.random() * 6);
     this.color1 = colors[randomIndex1];
     this.color2 = colors[randomIndex2];
     this.drawFreq();
@@ -101,7 +101,7 @@ body{
   width: 30px;
   height: 52px;
   left:0;
-  bottom:50px;
+  bottom:20px;
   z-index: 999;
 }
 #canvas2{
@@ -109,7 +109,7 @@ body{
   width: 30px;
   height: 52px;
   right:0;
-  top:50px;
+  top:20px;
   z-index: 999;
 }
 </style>

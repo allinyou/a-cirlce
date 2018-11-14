@@ -16,15 +16,15 @@ self.__precacheManifest = [
     "url": "/newcli/dist/js/chunk-vendors.b05a9661.js"
   },
   {
-    "revision": "421e37da7d1f80e0ada0",
-    "url": "/newcli/dist/js/chunk-21b6.e0a2e929.js"
+    "revision": "d3954b48d16ef93c6194",
+    "url": "/newcli/dist/js/chunk-b4b7.3c5a9080.js"
   },
   {
-    "revision": "7bc65030f9d604d366ce",
-    "url": "/newcli/dist/js/app.70632d79.js"
+    "revision": "07c0843d26e24cd90e79",
+    "url": "/newcli/dist/js/app.ba47d10c.js"
   },
   {
-    "revision": "1e28fc81edf6d88ed69a3cb23ea5062b",
+    "revision": "b7e064f6bc8d698b22a018273cceec7a",
     "url": "/newcli/dist/index.html"
   },
   {
@@ -36,15 +36,15 @@ self.__precacheManifest = [
     "url": "/newcli/dist/img/wechat.fc7e1f0c.jpg"
   },
   {
-    "revision": "34d7f3b0152f1046a9c3034fc5a6b26b",
-    "url": "/newcli/dist/img/avatar.34d7f3b0.jpg"
+    "revision": "2272c8440961267b57c90c2dda073918",
+    "url": "/newcli/dist/img/avatar.2272c844.jpg"
   },
   {
-    "revision": "421e37da7d1f80e0ada0",
-    "url": "/newcli/dist/css/chunk-21b6.9241f2f0.css"
+    "revision": "d3954b48d16ef93c6194",
+    "url": "/newcli/dist/css/chunk-b4b7.90177e05.css"
   },
   {
-    "revision": "7bc65030f9d604d366ce",
-    "url": "/newcli/dist/css/app.7b8313ac.css"
+    "revision": "07c0843d26e24cd90e79",
+    "url": "/newcli/dist/css/app.37bcb998.css"
   }
 ];
