@@ -1,7 +1,7 @@
 export default {
     methods: {
-        goAbout() {
-            this.$router.push({ name: 'about' });            
-        },
+        stopProp(e) {
+            e.stopPropagation();
+        }
     },
 };

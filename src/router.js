@@ -5,7 +5,7 @@ import Home from '@/views/Home';
 // route level code-splitting
 // this generates a separate chunk (about.[hash].js) for this route
 // which is lazy-loaded when the route is visited.
-const About = () => import('@/views/About');
+const Login = () => import('@/views/Login');
 
 Vue.use(Router);
 
@@ -19,15 +19,15 @@ const router = new Router({
       component: Home,
       meta: {
         title: '主页',
-        auth: false,
+        auth: true,
       },
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About,
+      path: '/login',
+      name: 'login',
+      component: Login,
       meta: {
-        title: '关于我',
+        title: '主页',
         auth: false,
       },
     },
@@ -49,7 +49,7 @@ router.beforeEach((to, from, next) => {
       const params = {
         to: to.fullPath,
       };
-      next({ path: '/login', query: { ...params } });
+      next({ path: '/login', query: { ...params }, replace: true });
     }
   }
   next();

@@ -1,75 +1,43 @@
 <template>
   <div id="app">
-    <keep-alive>
-      <router-view/>
-    </keep-alive>
-    <canvas id="canvas1" height="520" width="300"></canvas>
-    <canvas id="canvas2" height="520" width="300"></canvas>
+    <!-- 头部 -->
+    <header>
+      <div class="header-top-box">
+        <div class="head">
+          <div class="head-left">
+            <img src="./assets/1@2x.png" alt="">
+            <span>购车礼包管理</span>
+          </div>
+          <div class="head-right" v-if="username">
+            <img src="./assets/2@2x.png" alt="">
+            <div class="user" :title="username">{{username}}</div>
+            <div class="logout" @click="logout">退出登录</div>
+          </div>
+        </div>
+      </div>
+      <div class="header-bot"></div>
+    </header>
+    <router-view/>
+    <div class="loading-box">
+        <div class="loading">登录中，请售后</div>
+    </div>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  data() {
-    return {
-      color1: 'red',
-      color2: 'green',
-    };
+  computed: {
+    ...mapGetters([
+      'username',
+    ])
   },
   methods: {
-    drawFreq() {
-      const canvas1 = document.getElementById('canvas1');
-      const cxt1 = canvas1.getContext('2d');
-      const canvas2 = document.getElementById('canvas2');
-      const cxt2 = canvas2.getContext('2d');
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      const context = new AudioContext();
-      // 创建节点
-      const source = context.createMediaElementSource(this.audio);
-      const analyser = context.createAnalyser();
-      // 连接：source → analyser → destination
-      source.connect(analyser);
-      analyser.connect(context.destination);
-      const output = new Uint8Array(4);
-      const that = this;
-      (function drawFreqs() {
-        analyser.getByteFrequencyData(output);
-        cxt1.clearRect(0, 0, canvas1.width, canvas1.height);
-        cxt2.clearRect(0, 0, canvas2.width, canvas2.height);
-        const distance = 150;
-        for (let i = 0; i < 4; i++) {
-          const value1 = output[i] / 1.5; // <===获取数据 
-          const value2 = output[3 - i] / 1.5;
-          // 左边频谱
-          cxt1.beginPath();
-          cxt1.lineWidth = 50; 
-          const y = i * distance + 30;
-          cxt1.moveTo(0, y);
-          cxt1.lineTo(value1, y);
-          cxt1.closePath();
-          cxt1.strokeStyle = that.color1;
-          cxt1.stroke();
-
-          // 右边频谱
-          cxt2.beginPath();
-          cxt2.lineWidth = 50; 
-          cxt2.moveTo(canvas2.width, y);
-          cxt2.lineTo(canvas2.width - value2, y);
-          cxt2.closePath();
-          cxt2.strokeStyle = that.color2;
-          cxt2.stroke();
-        }; 
-        requestAnimationFrame(drawFreqs);
-      })();
-    },
-  },
-  mounted() {
-    const colors = ['red', 'orange', 'green', 'blue', 'cyan', 'purple'];
-    const randomIndex1 = Math.floor(Math.random() * 6);
-    const randomIndex2 = Math.floor(Math.random() * 6);
-    this.color1 = colors[randomIndex1];
-    this.color2 = colors[randomIndex2];
-    this.drawFreq();
-  },
+    logout() {
+      localStorage.clear();
+      location.reload();
+    }
+  }
 };
 </script>
 
@@ -86,8 +54,8 @@ a {
   text-decoration: none;
 }
 body{
-  font-size:0.28rem;
-  background-color: #fff;
+  font-size:14px;
+  background-color: #F0F0F0;
 }
 @import './style/index.scss';
 #app {
@@ -96,20 +64,96 @@ body{
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 } 
-#canvas1{
-  position: fixed;
-  width: 30px;
-  height: 52px;
-  left:0;
-  bottom:20px;
-  z-index: 999;
+header{
+  .header-top-box{
+    height: 80px;
+    background-color: #fff;
+    .head{
+      width: 1200px;
+      height: 100%;
+      margin: 0 auto;
+      .head-left{
+        width: 40%;
+        height: 100%;
+        float:left;
+        @extend .h-center;
+        img{
+          width: 131px;
+          margin-right:23px;
+        }
+      }
+      .head-right{
+        position: relative;
+        width:124px;
+        height: 30px;
+        float: right;
+        margin-top:25px;
+        border-radius:4px;
+        border:1px solid $border-color;
+        @extend .vh-center;
+        img{
+          width: 18px;
+        }
+        .user{
+          width: 50px;
+          @include ellipsis;
+          margin:0 10px;
+        }
+        &:after{
+          content:'';
+          display: block;
+          border:6px solid $border-color;
+          border-bottom-color: transparent;
+          border-right-color: transparent;
+          border-left-color: transparent;
+          margin-top:7px;
+        }
+        .logout{
+          position: absolute;
+          top:0;
+          left:125%;
+          width:124px;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+          border-radius:4px;
+          background-color: $main-color;
+          color:#fff;
+        }
+      }
+    }
+  }
+  .header-bot{
+    height: 22px;
+    background-color: $main-color;
+  }
 }
-#canvas2{
+
+.toast{
   position: fixed;
-  width: 30px;
-  height: 52px;
+  z-index:999;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding:50px 80px;
+  text-align: center;
+  color:#fff;
+  background-color: rgba(0,0,0,0.6);
+  border-radius:8px;
+  font-size:26px;
+  
+}
+.loading-box{
+  position: fixed;
+  top:0;
+  left:0;
   right:0;
-  top:20px;
+  bottom:0;
+  height: 100%;
   z-index: 999;
+  display: none;
+  .loading{
+    @extend .toast;
+  }
 }
 </style>
