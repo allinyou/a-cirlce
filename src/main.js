@@ -7,6 +7,8 @@ import Toast from './plugins/toast';
 
 Vue.config.productionTip = false;
 
+console.log(process.env.VUE_APP_API_HOST);
+
 Vue.use(Toast);
 
 new Vue({

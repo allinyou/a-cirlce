@@ -1,7 +1,7 @@
 import axios from 'axios';
-var host = process.env.NODE_ENV == 'production'? 'https://www.acircle.vip/package' : '/api/package';
+
 const instance = axios.create({
-    baseURL: host,
+    baseURL: process.env.VUE_APP_API_HOST,
     transformRequest: [data =>  {
         const token = localStorage.getItem('token');
         const key = localStorage.getItem('key');
