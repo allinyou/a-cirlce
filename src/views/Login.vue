@@ -1,14 +1,14 @@
 <template>
-    <div class="login">
+    <div class="login" >
         <div class="login-box">
             <div class="login-title">登录</div>
             <div class="user-name" :style="{borderColor:nameColor}">
                 <img src="../assets/3@2x.png" alt="">
-                <input type="text" v-model="loginData.username" placeholder="请输入账户" @focus="nameFocus" @blur="nameBlur"  autofocus>
+                <input type="text" v-model="loginData.username" placeholder="请输入账户" @focus="nameFocus" @blur="nameBlur"  autofocus @keydown="keydown" ref="account"/>
             </div>
             <div class="user-password" :style="{borderColor:passwordColor}">
                 <img src="../assets/3@2x.png" alt="" >
-                <input type="password" v-model="loginData.password" placeholder="请输入密码" @focus="passwordFocus" @blur="passwordBlur" >
+                <input type="password" v-model="loginData.password" placeholder="请输入密码" @focus="passwordFocus" @blur="passwordBlur" @keydown="keydown" ref="password"/>
             </div>
             <div class="login-btn" @click="login">登录</div>
         </div>
@@ -46,6 +46,7 @@ export default {
         async login() {
             // this.$router.replace({ name: 'home' });
             if (this.loginData.username.trim() === '') {
+                this.$refs.account.focus();
                 this.$toast({
                     title: '请输入用户名',
                     duration: 1000,
@@ -53,6 +54,7 @@ export default {
                 return;
             } 
             if (this.loginData.password.trim() === '') {
+                this.$refs.password.focus();
                 this.$toast({
                     title: '请输入密码',
                     duration: 1000,
@@ -87,10 +89,18 @@ export default {
                     duration: 1000,
                 });
             }          
-        }
+        },
+        keydown(e) {
+            if (e.keyCode == 13) {
+                this.login();
+            }
+        },
     },
     mounted() {
-        console.log()
+        window.addEventListener('keydown', this.keydown);
+    },
+    destroyed() {
+        window.removeEventListener('keydown', this.keydown);
     }
 };
 </script>
@@ -157,8 +167,4 @@ export default {
         background-color: #151922;
     }
 }
-
-
 </style>
-
-
