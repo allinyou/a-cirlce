@@ -18,7 +18,7 @@ Toasts.prototype.showToast = function (opa) {
 	if (opa.title){
 		div.innerHTML = title;
     }
-    app.append(div);
+    app.appendChild(div);
 	this.timeout = setTimeout(function(){
 		app.removeChild(div);
 	},dur)

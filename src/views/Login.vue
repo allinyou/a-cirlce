@@ -64,7 +64,6 @@ export default {
             this.showLoading('正在登录，请稍后');
             try {
                 const res = await LoginAPI.login({ ...this.loginData });
-                console.log(res);
                 this.hideLoading();             
                 if (res.data.code == 200) {
                     localStorage.setItem('token', res.data.token);
@@ -83,7 +82,6 @@ export default {
                 }
             } catch (err) {
                 this.hideLoading();
-                console.log(err);
                 this.$toast({
                     title: err,
                     duration: 1000,

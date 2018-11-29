@@ -164,7 +164,6 @@ export default {
           this.agencyList = res.data.list;
           this.giftReq.uid = res.data.list[0].uid;
         }
-        console.log(this.agencyList)
         this.getGiftList();
       }  
     },
