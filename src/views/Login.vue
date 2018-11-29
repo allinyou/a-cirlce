@@ -156,6 +156,7 @@ export default {
             color:#fff;
             line-height: 40px;
             background-color: $main-color;
+            cursor: pointer;
         }
     }
     .login-bottom{

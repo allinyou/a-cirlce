@@ -211,57 +211,6 @@ export default {
 <style lang="scss">
 @import '../style/index.scss';
 
-header{
-  .header-top-box{
-    height: 80px;
-    background-color: #fff;
-    .head{
-      width: 1200px;
-      height: 100%;
-      margin: 0 auto;
-      .head-left{
-        width: 40%;
-        height: 100%;
-        float:left;
-        @extend .h-center;
-        img{
-          width: 131px;
-          margin-right:23px;
-        }
-      }
-      .head-right{
-        width:124px;
-        height: 30px;
-        float: right;
-        margin-top:25px;
-        border-radius:4px;
-        border:1px solid $border-color;
-        @extend .vh-center;
-        img{
-          width: 18px;
-        }
-        .user{
-          width: 50px;
-          @include ellipsis;
-          margin:0 10px;
-        }
-        &:after{
-          content:'';
-          display: block;
-          border:6px solid $border-color;
-          border-bottom-color: transparent;
-          border-right-color: transparent;
-          border-left-color: transparent;
-          margin-top:7px;
-        }
-      }
-    }
-  }
-  .header-bot{
-    height: 22px;
-    background-color: $main-color;
-  }
-}
 section{
   width: 1120px;
   background-color: #fff;
@@ -307,6 +256,7 @@ section{
       color:#fff;
       line-height: 30px;
       text-align: center;
+      cursor: pointer;
     }
     .user-btn{
       float:right;
@@ -356,6 +306,7 @@ section{
            border-bottom:1px solid $border-color;
           &:last-child{
             color:$main-color;
+            cursor: pointer;
           }
         }
       }
@@ -424,6 +375,7 @@ section{
         margin-top:20px;
         margin-right:31px;
         border-radius:5px;
+        cursor: pointer;
       }
       .confirm-btn{
         background-color: $main-color;

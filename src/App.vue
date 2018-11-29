@@ -119,6 +119,7 @@ header{
           border-radius:4px;
           background-color: $main-color;
           color:#fff;
+          cursor: pointer;
         }
       }
     }
