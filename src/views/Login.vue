@@ -17,6 +17,7 @@
 </template>
 <script>
 import { LoginAPI } from '@/api/index';
+import { mapActions } from 'vuex';
 
 export default {
     name: 'login',
@@ -68,7 +69,7 @@ export default {
                 if (res.data.code == 200) {
                     localStorage.setItem('token', res.data.token);
                     localStorage.setItem('key', res.data.key);
-                    this.$store.commit('saveUser',res.data);
+                    this.saveUser(res.data);
                     this.$toast({
                         title: '登录成功',
                         duration: 1000,
@@ -93,6 +94,9 @@ export default {
                 this.login();
             }
         },
+        ...mapActions([
+            'saveUser',
+        ]),
     },
     mounted() {
         window.addEventListener('keydown', this.keydown);

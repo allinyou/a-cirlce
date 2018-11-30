@@ -1,7 +1,7 @@
 const mutations = {
-    saveUser (state, userInfo) {
-      state.username = userInfo.username;
-      state.token = userInfo.token;
+    saveUser (state, { username, token }) {
+      state.username = username;
+      state.token = token;
     }
 }
 

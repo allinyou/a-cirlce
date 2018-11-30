@@ -199,7 +199,7 @@ export default {
       if (res.data.code == 200) {
         this.userList = res.data.list;
       }
-    }
+    },
   },
   mounted() {
     this.getAgencyList();

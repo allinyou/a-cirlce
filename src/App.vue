@@ -58,6 +58,18 @@ body{
   background-color: #F0F0F0;
 }
 @import './style/index.scss';
+::selection{
+  background-color:$main-color;
+  color:#fff;
+}
+::-webkit-selection{
+  background-color:$main-color;
+  color:#fff;
+}
+::-moz-selection{
+  background-color:$main-color;
+  color:#fff;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
