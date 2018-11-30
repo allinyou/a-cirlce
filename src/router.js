@@ -10,7 +10,7 @@ const Login = () => import('@/views/Login');
 Vue.use(Router);
 
 const router = new Router({
-  mode: 'hash',
+  mode: 'hash', //hash history
   base: process.env.BASE_URL,
   routes: [
     {
@@ -18,7 +18,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        title: '主页',
+        title: '首页',
         auth: true,
       },
     },
@@ -27,7 +27,7 @@ const router = new Router({
       name: 'login',
       component: Login,
       meta: {
-        title: '主页',
+        title: '登录',
         auth: false,
       },
     },

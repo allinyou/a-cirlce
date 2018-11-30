@@ -58,6 +58,13 @@ body{
   background-color: #F0F0F0;
 }
 @import './style/index.scss';
+::-ms-clear, 
+::-ms-reveal{
+    display: none;
+}
+input::-webkit-input-safebox-button{
+  display: none;
+}
 ::selection{
   background-color:$main-color;
   color:#fff;

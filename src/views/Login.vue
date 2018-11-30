@@ -143,10 +143,15 @@ export default {
             img{
                 width: 22px;
                 margin:0 10px;
+                flex-shrink: 0;
             }
             input{
                 outline: none;
                 border:none;
+                flex-grow: 1;
+                margin-right:10px;
+                -webkit-appearance: none;
+                appearance: none;
             }
         }
         .login-btn{
