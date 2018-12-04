@@ -4194,9 +4194,9 @@ javascript-stringify@^1.6.0:
   version "1.6.0"
   resolved "http://registry.npm.taobao.org/javascript-stringify/download/javascript-stringify-1.6.0.tgz#142d111f3a6e3dae8f4a9afd77d45855b5a9cce3"
 
-jeany-vue-toast@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/jeany-vue-toast/-/jeany-vue-toast-1.0.0.tgz#d8895e9e2668ed4a8889a748636515f2018e3f3d"
+jeany-vue-toast@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/jeany-vue-toast/-/jeany-vue-toast-1.1.1.tgz#db980eccd085fe74278af38d57944f802db1dae4"
 
 joi@^11.1.1:
   version "11.4.0"

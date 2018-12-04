@@ -36,7 +36,7 @@ export default {
     logout() {
       localStorage.clear();
       location.reload();
-    }
+    },
   }
 };
 </script>
