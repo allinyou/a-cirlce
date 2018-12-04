@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "install": "^0.12.1",
+    "jeany-vue-toast": "^1.0.0",
     "register-service-worker": "^1.0.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",

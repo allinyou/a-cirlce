@@ -148,31 +148,4 @@ header{
     background-color: $main-color;
   }
 }
-
-.toast{
-  position: fixed;
-  z-index:999;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  padding:50px 80px;
-  text-align: center;
-  color:#fff;
-  background-color: rgba(0,0,0,0.6);
-  border-radius:8px;
-  font-size:26px;
-  
-}
-.loading-box{
-  position: fixed;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  height: 100%;
-  z-index: 999;
-  .loading{
-    @extend .toast;
-  }
-}
 </style>
