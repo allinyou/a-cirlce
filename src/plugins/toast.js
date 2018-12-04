@@ -26,13 +26,19 @@ Toasts.prototype.showToast = function (opa) {
 
 Toasts.prototype.showLoading = function(title) {
     title = title || '请稍后';
-    const loadingBox = document.querySelector('.loading-box');
+    let loadingBox = document.querySelector('.loading-box');
+    const app = document.querySelector('#app');
+    if (!loadingBox) {
+        loadingBox = document.createElement('div');
+        loadingBox.className = 'loading-box';
+        app.appendChild(loadingBox);
+    }
     loadingBox.style.display = 'block';
-    loadingBox.innerHTML = '<div class="loading">' + title + '</div>';
+    loadingBox.innerHTML = '<div class="loading">' + title + '</div>'; 
 }
 Toasts.prototype.hideLoading = function() {
     const loadingBox = document.querySelector('.loading-box');
-    loadingBox.style.display = 'none';
+    loadingBox && (loadingBox.style.display = 'none');    
 }
 
 const newtoast = new Toasts();

@@ -18,9 +18,9 @@
       <div class="header-bot"></div>
     </header>
     <router-view/>
-    <div class="loading-box">
+    <!-- <div class="loading-box">
         <div class="loading">登录中，请售后</div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -171,7 +171,6 @@ header{
   bottom:0;
   height: 100%;
   z-index: 999;
-  display: none;
   .loading{
     @extend .toast;
   }
