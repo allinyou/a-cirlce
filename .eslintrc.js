@@ -35,6 +35,7 @@ module.exports = {
     // 'no-console': process.env.NODE_ENV === 'production' ? 2 : 0,
     'linebreak-style': ["off", "windows"],
     'no-trailing-spaces': [2, { "skipBlankLines": true }],
+    'eqeqeq': ["error", "smart"], 
   },
   parserOptions: {
     parser: 'babel-eslint',

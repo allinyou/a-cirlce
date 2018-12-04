@@ -102,6 +102,7 @@
 </template>
 <script>
 // @ is an alias to /src
+ /* eslint-disable */
 import { IndexAPI } from '@/api/';
 import HelloWorld from '@/components/HelloWorld';
 import mixin from '@/mixins/index';
@@ -137,8 +138,8 @@ export default {
   },
   methods: {
     changeInfo(item) {
-      const { id,sale_name,sale_phone,client_name,client_nickname, client_phone } = item;
-      this.editReq = { id, sale_name, sale_phone, client_name, client_nickname, client_phone};
+      const { id, sale_name, sale_phone, client_name, client_nickname, client_phone } = item;
+      this.editReq = { id, sale_name, sale_phone, client_name, client_nickname, client_phone };
       this.modalShow = true;
     },
     hideModal() {
@@ -179,7 +180,7 @@ export default {
       const { id, sale_name, sale_phone, client_name, client_nickname, client_phone} = this.editReq;
       if (sale_name.trim() == '' || sale_phone.trim() == '' || client_name.trim() == '' || client_nickname.trim() == '' || client_phone.trim() == '') {
         this.$toast({
-          title: '请填写完整信息',
+          title: '请填写完整信息', 
           duration: 1000
         });
         return;

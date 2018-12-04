@@ -103,7 +103,7 @@ export default {
     },
     destroyed() {
         window.removeEventListener('keydown', this.keydown);
-    }
+    },
 };
 </script>
 <style lang="scss">

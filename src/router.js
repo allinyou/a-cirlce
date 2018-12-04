@@ -10,7 +10,7 @@ const Login = () => import('@/views/Login');
 Vue.use(Router);
 
 const router = new Router({
-  mode: 'hash', //hash history
+  mode: 'hash', // hash history
   base: process.env.BASE_URL,
   routes: [
     {

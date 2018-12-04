@@ -1,2 +1,3 @@
 dist
 vue.config.js
+plugins/toast.js
