@@ -18,9 +18,6 @@
       <div class="header-bot"></div>
     </header>
     <router-view/>
-    <!-- <div class="loading-box">
-        <div class="loading">登录中，请售后</div>
-    </div> -->
   </div>
 </template>
 <script>
@@ -30,6 +27,7 @@ export default {
   computed: {
     ...mapGetters([
       'username',
+      'token',
     ])
   },
   methods: {
