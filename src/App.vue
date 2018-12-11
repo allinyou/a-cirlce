@@ -8,9 +8,9 @@
             <img src="./assets/1@2x.png" alt="">
             <span>购车礼包管理</span>
           </div>
-          <div class="head-right" v-if="username">
+          <div class="head-right" v-if="username" :title="username">
             <img src="./assets/2@2x.png" alt="">
-            <div class="user" :title="username">{{username}}</div>
+            <div class="user">{{username}}</div>
             <div class="logout" @click="logout">退出登录</div>
           </div>
         </div>
@@ -37,7 +37,7 @@ export default {
       localStorage.clear();
       location.reload();
     },
-  }
+  },
 };
 </script>
 
