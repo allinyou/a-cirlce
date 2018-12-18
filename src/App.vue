@@ -8,10 +8,10 @@
             <img src="./assets/1@2x.png" alt="">
             <span>购车礼包管理</span>
           </div>
+          <div class="logout" @click="logout" v-if="username">退出登录</div>
           <div class="head-right" v-if="username" :title="username">
             <img src="./assets/2@2x.png" alt="">
-            <div class="user">{{username}}</div>
-            <div class="logout" @click="logout">退出登录</div>
+            <div class="user">{{username}}</div> 
           </div>
         </div>
       </div>
@@ -24,11 +24,16 @@
 import { mapGetters } from 'vuex';
 
 export default {
+  data() {
+    return {
+
+    };
+  },
   computed: {
     ...mapGetters([
       'username',
       'token',
-    ])
+    ]),
   },
   methods: {
     logout() {
@@ -125,19 +130,20 @@ header{
           border-left-color: transparent;
           margin-top:7px;
         }
-        .logout{
-          position: absolute;
-          top:0;
-          left:125%;
-          width:124px;
-          height: 30px;
-          text-align: center;
-          line-height: 30px;
-          border-radius:4px;
-          background-color: $main-color;
-          color:#fff;
-          cursor: pointer;
-        }
+        
+      }
+      .logout{
+        float: right;
+        width:124px;
+        height: 30px;
+        text-align: center;
+        margin-top:25px;
+        margin-left:30px;
+        line-height: 30px;
+        border-radius:4px;
+        background-color: $main-color;
+        color:#fff;
+        cursor: pointer;
       }
     }
   }
@@ -146,4 +152,6 @@ header{
     background-color: $main-color;
   }
 }
+
+@media (-webkit-max-device-pixel-ratio:1){::-webkit-scrollbar-track-piece{background-color:#FFF;}::-webkit-scrollbar{width:6px;height:6px;}::-webkit-scrollbar-thumb{background-color:#c2c2c2;background-clip:padding-box;min-height:28px;}::-webkit-scrollbar-thumb:hover{background-color:#A0A0A0}}
 </style>
